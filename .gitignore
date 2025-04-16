@@ -1,0 +1,63 @@
+venv
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# Docker
+.env
+.env.prod
+docker-compose.override.yml
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Database
+*.db
+*.sqlite
+/postgres_data/
+
+# Test artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+test-results.xml
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# Node.js (если используется)
+node_modules/
+npm-debug.log*
+
+# Backup files
+*.bak
+*.backup
+
+# Docker-specific
+**/docker-compose.yml.bak
+**/.dockerignore.bak
+
+# Python
+*.py[cod]
+*$py.class

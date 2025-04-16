@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./barterservice
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./barterservice:/app
+    environment:
+      DJANGO_SUPERUSER_NAME: root
+      DJANGO_SUPERUSER_EMAIL: root@root.com
+      DJANGO_SUPERUSER_PASSWORD: root
+    depends_on:
+      - db
+    command: sh -c "python manage.py migrate && python manage.py createsuperuser --noinput --username=root --email=root@example.com || true && python manage.py runserver 0.0.0.0:8000"
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: barterdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
